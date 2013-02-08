@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StealFocus.BclExtensions", "StealFocus.BclExtensions\StealFocus.BclExtensions.csproj", "{6704A4B4-C343-4CD2-9234-05CFF590717E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StealFocus.BclExtensions.Tests", "StealFocus.BclExtensions.Tests\StealFocus.BclExtensions.Tests.csproj", "{3AE79C7A-569C-4F2A-8353-D4E8126E8411}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{946D8F16-F67F-47C1-92AC-1E0B3AB30449}"
+	ProjectSection(SolutionItems) = preProject
+		BuildServer.testsettings = BuildServer.testsettings
+		FxCopCustomDictionary.xml = FxCopCustomDictionary.xml
+		Local.testsettings = Local.testsettings
+		Notes.txt = Notes.txt
+		Settings.StyleCop = Settings.StyleCop
+		StealFocus.BclExtensions.ruleset = StealFocus.BclExtensions.ruleset
+		StealFocus.BclExtensions.StrongNameKeyPair.snk = StealFocus.BclExtensions.StrongNameKeyPair.snk
+		StealFocus.BclExtensions.StrongNamePublicKey.snk = StealFocus.BclExtensions.StrongNamePublicKey.snk
+		StealFocus.BclExtensions.vsmdi = StealFocus.BclExtensions.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{725515F0-0BAF-4CFB-B185-097B0CE173A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Artefacts", "Artefacts", "{BFB3E90B-7732-413D-A241-1F954EDAEF51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandFiles", "CommandFiles", "{328D2ABA-F73E-4D1A-BE5D-548419713B9B}"
+	ProjectSection(SolutionItems) = preProject
+		CommandFiles\StealFocus.BclExtensions.Build.cmd = CommandFiles\StealFocus.BclExtensions.Build.cmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{368BB7E8-C089-4D7B-A331-43192183BD5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{55849B4C-9B52-45A3-90F1-060EE32E9355}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\StealFocus.BclExtensions.Build.proj = Scripts\StealFocus.BclExtensions.Build.proj
+		Scripts\StealFocus.BclExtensions.Build.Project.Assembly.targets = Scripts\StealFocus.BclExtensions.Build.Project.Assembly.targets
+		Scripts\StealFocus.BclExtensions.Build.Project.CSharp.targets = Scripts\StealFocus.BclExtensions.Build.Project.CSharp.targets
+		Scripts\StealFocus.BclExtensions.Build.Project.targets = Scripts\StealFocus.BclExtensions.Build.Project.targets
+		Scripts\StealFocus.BclExtensions.Build.Project.VisualBasic.targets = Scripts\StealFocus.BclExtensions.Build.Project.VisualBasic.targets
+		Scripts\StealFocus.BclExtensions.CCNet.proj = Scripts\StealFocus.BclExtensions.CCNet.proj
+		Scripts\StealFocus.BclExtensions.targets = Scripts\StealFocus.BclExtensions.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StealFocus.BclExtensions", "StealFocus.BclExtensions", "{FC406A7D-3D67-42B0-9DD4-940042CBB69E}"
+	ProjectSection(SolutionItems) = preProject
+		Artefacts\NuGet\StealFocus.BclExtensions\StealFocus.BclExtensions.nuspec = Artefacts\NuGet\StealFocus.BclExtensions\StealFocus.BclExtensions.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{49DB7598-8AFD-43A1-8147-10E9124BF29C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = StealFocus.BclExtensions.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6704A4B4-C343-4CD2-9234-05CFF590717E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6704A4B4-C343-4CD2-9234-05CFF590717E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6704A4B4-C343-4CD2-9234-05CFF590717E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6704A4B4-C343-4CD2-9234-05CFF590717E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AE79C7A-569C-4F2A-8353-D4E8126E8411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE79C7A-569C-4F2A-8353-D4E8126E8411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE79C7A-569C-4F2A-8353-D4E8126E8411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE79C7A-569C-4F2A-8353-D4E8126E8411}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3AE79C7A-569C-4F2A-8353-D4E8126E8411} = {725515F0-0BAF-4CFB-B185-097B0CE173A7}
+		{368BB7E8-C089-4D7B-A331-43192183BD5E} = {BFB3E90B-7732-413D-A241-1F954EDAEF51}
+		{FC406A7D-3D67-42B0-9DD4-940042CBB69E} = {368BB7E8-C089-4D7B-A331-43192183BD5E}
+	EndGlobalSection
+EndGlobal
