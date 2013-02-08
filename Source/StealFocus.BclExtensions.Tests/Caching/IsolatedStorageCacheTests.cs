@@ -33,7 +33,7 @@ namespace StealFocus.BclExtensions.Tests.Caching
         }
 
         [TestMethod]
-        public void UnitTestAddContainsClearContains()
+        public void UnitTest_That_After_Adding_Then_Contains_Is_True_And_After_Clear_Then_Contains_Is_False()
         {
             ICache cache = new IsolatedStorageCache();
             object cachedObject = new object();
@@ -47,7 +47,7 @@ namespace StealFocus.BclExtensions.Tests.Caching
         }
 
         [TestMethod]
-        public void UnitTestAddToCacheAndRetrieveFromIsolatedStorageWithADifferentCacheInstance()
+        public void UnitTest_Add_To_Cache_And_Retrieve_From_Isolated_Storage_With_A_Different_Cache_Instance()
         {
             const string MyTestFileName = "MyTest1";
             const string MyCacheKey = "MyKey";
@@ -65,7 +65,7 @@ namespace StealFocus.BclExtensions.Tests.Caching
         }
 
         [TestMethod]
-        public void UnitTestAddLotsOfItemsToCacheAndRetrieveFromIsolatedStorageWithADifferentCacheInstance()
+        public void UnitTest_Add_Lots_Of_Items_To_Cache_And_Retrieve_From_Isolated_Storage_With_A_Different_Cache_Instance()
         {
             const string MyTestFileName = "MyTest2";
             const string MyCacheKey1 = "MyKey1";
@@ -97,7 +97,7 @@ namespace StealFocus.BclExtensions.Tests.Caching
         }
 
         [TestMethod]
-        public void UnitTestCacheLoadWithInvalidTypeInDictionary()
+        public void UnitTest_Cache_Load_With_Invalid_Type_In_Dictionary()
         {
             const string MyTestFileName = "MyTest3";
 

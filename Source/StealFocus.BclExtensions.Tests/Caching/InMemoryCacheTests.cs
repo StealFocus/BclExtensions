@@ -24,7 +24,7 @@ namespace StealFocus.BclExtensions.Tests.Caching
         }
 
         [TestMethod]
-        public void UnitTestAddContainsClearContains()
+        public void UnitTest_That_After_Adding_Then_Contains_Is_True_And_After_Clear_Then_Contains_Is_False()
         {
             ICache cache = new InMemoryCache();
             object cachedObject = new object();

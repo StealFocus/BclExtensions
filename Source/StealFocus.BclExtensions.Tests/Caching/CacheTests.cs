@@ -36,7 +36,7 @@ namespace StealFocus.BclExtensions.Tests.Caching
         protected abstract TimeSpan PauseBeforeCheckingCache { get; }
 
         [TestMethod]
-        public void UnitTestAddContainsGet()
+        public void UnitTest_That_After_Adding_Then_Contains_Is_True_And_Get_Returns_The_Same_Item()
         {
             T cache = new T();
             object cachedObject = new object();
@@ -48,7 +48,7 @@ namespace StealFocus.BclExtensions.Tests.Caching
         }
 
         [TestMethod]
-        public void UnitTestContainsGet()
+        public void UnitTest_That_Without_Adding_Then_Contains_Is_False_And_Get_Returns_Null()
         {
             T cache = new T();
             bool containsItem = cache.ContainsItem(CacheKeyOfItemThatDoesNotExist);
@@ -58,7 +58,7 @@ namespace StealFocus.BclExtensions.Tests.Caching
         }
 
         [TestMethod]
-        public void UnitTestAddExpireContains()
+        public void UnitTest_That_After_Adding_Then_Expiring_Contains_Is_False()
         {
             T cache = new T();
             object cachedObject = new object();
@@ -69,7 +69,7 @@ namespace StealFocus.BclExtensions.Tests.Caching
         }
 
         [TestMethod]
-        public void UnitTestAddExpireGet()
+        public void UnitTest_That_After_Adding_Then_Expiring_Get_Is_Null()
         {
             T cache = new T();
             object cachedObject = new object();
