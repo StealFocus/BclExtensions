@@ -21,7 +21,7 @@ namespace StealFocus.BclExtensions
     /// </remarks>
     public static class GlobalAssemblyCache
     {
-        private const string FusionAssemblyNameValue = "mscorcfg, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+        private const string DefaultFusionAssemblyName = "mscorcfg, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
 
         public static string FusionAssemblyName { get; set; }
 
@@ -35,7 +35,7 @@ namespace StealFocus.BclExtensions
             Type fusionType;
             if (string.IsNullOrEmpty(FusionAssemblyName))
             {
-                fusionType = InitialiseFusion(FusionAssemblyNameValue);
+                fusionType = InitialiseFusion(DefaultFusionAssemblyName);
             }
             else
             {
