@@ -21,10 +21,9 @@ namespace StealFocus.BclExtensions
     /// </remarks>
     public static class GlobalAssemblyCache
     {
-        /// <summary>
-        /// Holds the Type for Fusion.
-        /// </summary>
-        private static readonly Type FusionType = InitialiseFusion();
+        private const string FusionAssemblyNameValue = "mscorcfg, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+
+        public static string FusionAssemblyName { get; set; }
 
         /// <summary>
         /// Gets a list of items in the GAC.
@@ -33,10 +32,20 @@ namespace StealFocus.BclExtensions
         /// <returns>An array of <see cref="GlobalAssemblyCacheItem"/>. The items in the GAC.</returns>
         public static GlobalAssemblyCacheItem[] GetAssemblyList(GlobalAssemblyCacheCategoryTypes globalAssemblyCacheCategory)
         {
+            Type fusionType;
+            if (string.IsNullOrEmpty(FusionAssemblyName))
+            {
+                fusionType = InitialiseFusion(FusionAssemblyNameValue);
+            }
+            else
+            {
+                fusionType = InitialiseFusion(FusionAssemblyName);
+            }
+            
             ArrayList assemblyInfoList = new ArrayList();
             object[] args = new object[] { assemblyInfoList, (uint)globalAssemblyCacheCategory };
             const BindingFlags BindingFlags = (BindingFlags)314;
-            FusionType.InvokeMember("ReadCache", BindingFlags, null, null, args, CultureInfo.CurrentCulture);
+            fusionType.InvokeMember("ReadCache", BindingFlags, null, null, args, CultureInfo.CurrentCulture);
             GlobalAssemblyCacheItem[] gacAssemblies = new GlobalAssemblyCacheItem[assemblyInfoList.Count];
             for (int i = 0; i < assemblyInfoList.Count; i++)
             {
@@ -50,13 +59,9 @@ namespace StealFocus.BclExtensions
             return gacAssemblies;
         }
 
-        /// <summary>
-        /// Initializes <see cref="FusionType"/>.
-        /// </summary>
-        /// <returns>The type representing Fusion.</returns>
-        private static Type InitialiseFusion()
+        private static Type InitialiseFusion(string fusionAssemblyName)
         {
-            Assembly assembly = Assembly.Load("mscorcfg, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
+            Assembly assembly = Assembly.Load(fusionAssemblyName);
             return assembly.GetType("Microsoft.CLRAdmin.Fusion");
         }
 
