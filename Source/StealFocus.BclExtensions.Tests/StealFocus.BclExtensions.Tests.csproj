@@ -51,6 +51,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +71,10 @@
     <Compile Include="IO\FileSystemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\AssemblyInfoCommon.g.cs" />
+    <Compile Include="ResourceTests.cs" />
+    <Compile Include="ResourceTests.Designer.cs">
+      <DependentUpon>ResourceTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Security\ImpersonationTests.cs" />
     <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="Xml\Serialization\SerializableWidget.cs" />
@@ -86,6 +91,10 @@
     <None Include="..\StealFocus.BclExtensions.StrongNamePublicKey.snk">
       <Link>StealFocus.BclExtensions.StrongNamePublicKey.snk</Link>
     </None>
+    <EmbeddedResource Include="ResourceTests.resx">
+      <DependentUpon>ResourceTests.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Xml\Resources\Schema.xsd" />
     <EmbeddedResource Include="Resources\MyBadlyFormedXsdResource.xsd" />
     <EmbeddedResource Include="Resources\MyInvalidXsdResource.xsd" />
