@@ -16,9 +16,9 @@ namespace StealFocus.BclExtensions.Caching
 
     public class IsolatedStorageCache : ICache
     {
-        private const string CacheFileNamePrefix = "StealFocus.BclExtensions.Caching.IsolatedStorageCache_";
-
         private const string AllFilesSearchPattern = "*";
+
+        private static readonly string CacheFileNamePrefix = typeof(IsolatedStorageCache).FullName + "_";
 
         private static readonly object SyncRoot = new object();
 
@@ -179,29 +179,27 @@ namespace StealFocus.BclExtensions.Caching
                 {
                     IsolatedStorageFile isolatedStorageFile = null;
                     IsolatedStorageFileStream isolatedStorageFileStream = null;
-                    XmlSerializer xs;
-                    StreamReader sr = null;
+                    StreamReader streamReader = null;
                     try
                     {
                         isolatedStorageFile = IsolatedStorageFile.GetUserStoreForAssembly();
                         isolatedStorageFileStream = new IsolatedStorageFileStream(this.cacheFileName, FileMode.Open, FileAccess.Read, FileShare.Read, isolatedStorageFile);
-                        xs = new XmlSerializer(typeof(IsolatedStorageCacheDictionary));
-                        sr = new StreamReader(isolatedStorageFileStream);
-                        this.cachedItemDictionary = (IsolatedStorageCacheDictionary)xs.Deserialize(sr);
+                        XmlSerializer xs = new XmlSerializer(typeof(IsolatedStorageCacheDictionary));
+                        streamReader = new StreamReader(isolatedStorageFileStream);
+                        this.cachedItemDictionary = (IsolatedStorageCacheDictionary)xs.Deserialize(streamReader);
                     }
                     finally
                     {
-                        if (sr != null)
+                        if (streamReader != null)
                         {
-                            sr.Close();
+                            streamReader.Close();
                         }
                         else if (isolatedStorageFileStream != null)
                         {
                             isolatedStorageFileStream.Close();
                         }
-                        else
+                        else if (isolatedStorageFile != null)
                         {
-                            // Resharper sometimes warns of a possible "NullReferenceException", this scenaio can't happen.
                             isolatedStorageFile.Close();
                         }
                     }
@@ -219,29 +217,27 @@ namespace StealFocus.BclExtensions.Caching
             {
                 IsolatedStorageFile isolatedStorageFile = null;
                 IsolatedStorageFileStream isolatedStorageFileStream = null;
-                XmlSerializer xs;
-                StreamWriter sw = null;
+                StreamWriter streamWriter = null;
                 try
                 {
                     isolatedStorageFile = IsolatedStorageFile.GetUserStoreForAssembly();
                     isolatedStorageFileStream = new IsolatedStorageFileStream(this.cacheFileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite, isolatedStorageFile);
-                    xs = new XmlSerializer(typeof(IsolatedStorageCacheDictionary));
-                    sw = new StreamWriter(isolatedStorageFileStream);
-                    xs.Serialize(sw, this.cachedItemDictionary);
+                    XmlSerializer xs = new XmlSerializer(typeof(IsolatedStorageCacheDictionary));
+                    streamWriter = new StreamWriter(isolatedStorageFileStream);
+                    xs.Serialize(streamWriter, this.cachedItemDictionary);
                 }
                 finally
                 {
-                    if (sw != null)
+                    if (streamWriter != null)
                     {
-                        sw.Close();
+                        streamWriter.Close();
                     }
                     else if (isolatedStorageFileStream != null)
                     {
                         isolatedStorageFileStream.Close();
                     }
-                    else
+                    else if (isolatedStorageFile != null)
                     {
-                        // Resharper sometimes warns of a possible "NullReferenceException", this scenaio can't happen.
                         isolatedStorageFile.Close();
                     }
                 }
