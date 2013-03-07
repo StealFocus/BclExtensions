@@ -50,7 +50,7 @@
         /// <param name="version">The version number of the UUID to create; this value must be either 3 (for MD5 hashing) or 5 (for SHA-1 hashing).</param>
         /// <returns>A UUID derived from the namespace and name.</returns>
         /// <remarks>See <a href="http://code.logos.com/blog/2011/04/generating_a_deterministic_guid.html">Generating a deterministic GUID</a>.</remarks>
-        public static Guid CreateGuid(string name, Guid namespaceId, int version)
+        public static Guid CreateGuid(this string name, Guid namespaceId, int version)
         {
             if (name == null)
             {
